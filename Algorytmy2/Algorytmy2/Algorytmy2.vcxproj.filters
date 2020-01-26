@@ -25,6 +25,18 @@
     <Filter Include="Header Files\sortowanie">
       <UniqueIdentifier>{d82cedb3-050b-4dbb-9271-27905e9bd41d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\kopce">
+      <UniqueIdentifier>{1429d045-7b67-4c73-aa8f-54e7ae87950c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\kopce">
+      <UniqueIdentifier>{3e0b7e7f-3414-4835-878e-2166b4ecdcd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\porownanie">
+      <UniqueIdentifier>{31f2c551-23a3-4e5d-9e76-8621fc7712b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\porownanie">
+      <UniqueIdentifier>{d8c9d68c-f5ec-44b6-9532-5811539455d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -33,10 +45,19 @@
     <ClCompile Include="sortowanie\sortowanie.c">
       <Filter>Source Files\sortowanie</Filter>
     </ClCompile>
-    <ClCompile Include="drzewo_binarne\lista.c">
+    <ClCompile Include="drzewo_binarne\zadanie.c">
       <Filter>Source Files\drzewo_binarne</Filter>
     </ClCompile>
-    <ClCompile Include="drzewo_binarne\zadanie.c">
+    <ClCompile Include="kopce\kopce.c">
+      <Filter>Source Files\kopce</Filter>
+    </ClCompile>
+    <ClCompile Include="porownanie\lista.c">
+      <Filter>Source Files\porownanie</Filter>
+    </ClCompile>
+    <ClCompile Include="porownanie\porownanie.c">
+      <Filter>Source Files\porownanie</Filter>
+    </ClCompile>
+    <ClCompile Include="drzewo_binarne\listaC.c">
       <Filter>Source Files\drzewo_binarne</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,10 +65,19 @@
     <ClInclude Include="sortowanie\sortowanie.h">
       <Filter>Header Files\sortowanie</Filter>
     </ClInclude>
-    <ClInclude Include="drzewo_binarne\lista.h">
+    <ClInclude Include="drzewo_binarne\zadanie.h">
       <Filter>Header Files\drzewo_binarne</Filter>
     </ClInclude>
-    <ClInclude Include="drzewo_binarne\zadanie.h">
+    <ClInclude Include="kopce\kopce.h">
+      <Filter>Header Files\kopce</Filter>
+    </ClInclude>
+    <ClInclude Include="porownanie\porownanie.h">
+      <Filter>Header Files\porownanie</Filter>
+    </ClInclude>
+    <ClInclude Include="porownanie\lista.h">
+      <Filter>Header Files\porownanie</Filter>
+    </ClInclude>
+    <ClInclude Include="drzewo_binarne\listaC.h">
       <Filter>Header Files\drzewo_binarne</Filter>
     </ClInclude>
   </ItemGroup>

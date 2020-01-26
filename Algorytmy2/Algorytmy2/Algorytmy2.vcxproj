@@ -19,14 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="drzewo_binarne\lista.c" />
+    <ClCompile Include="drzewo_binarne\listaC.c" />
     <ClCompile Include="drzewo_binarne\zadanie.c" />
+    <ClCompile Include="kopce\kopce.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="porownanie\lista.c" />
+    <ClCompile Include="porownanie\porownanie.c" />
     <ClCompile Include="sortowanie\sortowanie.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="drzewo_binarne\lista.h" />
+    <ClInclude Include="drzewo_binarne\listaC.h" />
     <ClInclude Include="drzewo_binarne\zadanie.h" />
+    <ClInclude Include="kopce\kopce.h" />
+    <ClInclude Include="porownanie\lista.h" />
+    <ClInclude Include="porownanie\porownanie.h" />
     <ClInclude Include="sortowanie\sortowanie.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

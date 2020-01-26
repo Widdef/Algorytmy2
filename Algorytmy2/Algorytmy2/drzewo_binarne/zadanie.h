@@ -2,25 +2,25 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "lista.h"
+#include "listaC.h"
 
 typedef struct tree
 {
 	struct tree* lewy;
 	struct tree* prawy;
 	struct tree* rodzic;
-	int wartosc;
+	char wartosc;
 } node;
 
 void menu_14();
-void wartosc(int*);
-void wyswietl(node*, int);
-void dodaj(node**, int);
-void usun(node**, int);
-node* szukaj(node**, int);
+void wartosc(char*);
+void wyswietl(node*, char);
+void dodaj(node**, char);
+void usun(node**, char);
+node* szukaj(node**, char);
 node* minimum(node**);
 node* maksimum(node**);
-node* poprzednik(node**, int);
-node* nastepnik(node**, int);
+node* poprzednik(node**, char);
+node* nastepnik(node**, char);
 int porownanie(node**, node**);
 list** treeToList(node**);

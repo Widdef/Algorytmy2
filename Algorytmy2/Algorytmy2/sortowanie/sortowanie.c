@@ -1,7 +1,7 @@
 #include "sortowanie.h"
 #define START 0
-#define KONIEC 10
-#define COUNT 10
+#define KONIEC 10000
+#define COUNT 1000
 
 void menu_21() {
 	system("CLS");
@@ -17,6 +17,11 @@ void menu_21() {
 	{
 		for (int j = 0; j < KONIEC; j++)
 			tab[0][j] = tab[1][j] = tab[2][j] = tab[3][j] = rand()%100000;
+		for (int j = 0; j < 4; j++)
+		{
+			sortowania[j][0][i] = 0;
+			sortowania[j][1][i] = 0;
+		}
 		babelkowe(tab[0], KONIEC, &sortowania[0][0][i], &sortowania[0][1][i]);
 		wstawianie(tab[1], KONIEC, &sortowania[1][0][i], &sortowania[1][1][i]);
 		shella(tab[2], KONIEC, &sortowania[2][0][i], &sortowania[2][1][i]);
@@ -66,12 +71,11 @@ void swap(int* a, int* b)
 	*a = *b;
 	*b = t;
 }
-
 void babelkowe(int arr[], int n, int* podstawienia, int* porownania)
 {
 	int i, j;
-	for (i = 0; i < n - 1; i++,(*porownania)++)
-		for (j = 0; j < n - i - 1; j++, (*porownania)++)
+	for (i = 0; i < n - 1; i++)
+		for (j = 0; j < n - i - 1; j++)
 			if (arr[j] > arr[j + 1])
 			{
 				swap(&arr[j], &arr[j + 1]);
@@ -83,7 +87,7 @@ void babelkowe(int arr[], int n, int* podstawienia, int* porownania)
 void wstawianie(int arr[], int n, int* podstawienia, int* porownania)
 {
 	int i, key, j;
-	for (i = 1; i < n; i++, (*porownania)++) {
+	for (i = 1; i < n; i++) {
 		key = arr[i];
 		(*podstawienia)++;
 		j = i - 1;
@@ -100,7 +104,7 @@ void wstawianie(int arr[], int n, int* podstawienia, int* porownania)
 
 void shella(int arr[], int n, int* podstawienia, int* porownania)
 {
-	for (int gap = n / 2; gap > 0; gap /= 2, (*porownania)++)
+	for (int gap = n / 2; gap > 0; gap /= 2)
 	{
 		for (int i = gap; i < n; i += 1, (*porownania)++)
 		{
