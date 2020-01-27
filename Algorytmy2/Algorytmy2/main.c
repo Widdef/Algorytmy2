@@ -3,16 +3,11 @@
 #include "drzewo_binarne/zadanie.h"
 #include "sortowanie/sortowanie.h"
 #include "kopce/kopce.h"
-
-void test(int *t)
-{
-	(*t)++;
-}
+#include "droga/droga.h"
 
 int main()
 {
 	int wybor;
-	int value = 4;
 	do
 	{
 		system("CLS");
@@ -21,7 +16,7 @@ int main()
 		printf("16 - Porownanie\n");
 		printf("21 - Sortowanie\n");
 		printf("22 - Kopce\n");
-		printf("25 - \n");
+		printf("25 - Droga\n");
 		printf("0 - Wyjscie\n");
 		printf("\nPodaj liczbe:  ");
 		scanf("%d", &wybor);
@@ -41,6 +36,7 @@ int main()
 			menu_22();
 			break;
 		case 25:
+			menu_25();
 			break;
 		default:
 			break;

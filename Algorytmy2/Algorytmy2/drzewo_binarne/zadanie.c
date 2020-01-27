@@ -39,7 +39,7 @@ void menu_14() {
 			if (znalezione == 0)
 				printf("\nNie znaleziono wartosci lub drzewo jest puste\n");
 			else
-				printf("Wyszukana wartosc:  %d, adres: %d\n", znalezione->wartosc, &znalezione);
+				printf("Wyszukana wartosc:  %d, adres: %p\n", znalezione->wartosc, &znalezione);
 			system("PAUSE");
 			break;
 		case 4:
@@ -47,7 +47,7 @@ void menu_14() {
 			if(znalezione == 0)
 				printf("\nDrzewo jest puste.\n");
 			else
-				printf("Wartosc minimalna:  %c", znalezione->wartosc);
+				printf("Wartosc minimalna:  %c\n", znalezione->wartosc);
 			system("PAUSE");
 			break;
 		case 5:
@@ -55,7 +55,7 @@ void menu_14() {
 			if (znalezione == 0)
 				printf("\nDrzewo jest puste.\n");
 			else
-				printf("Wartosc maksymalna:  %c", znalezione->wartosc);
+				printf("Wartosc maksymalna:  %c\n", znalezione->wartosc);
 			system("PAUSE");
 			break;
 		case 6:
@@ -64,15 +64,18 @@ void menu_14() {
 			if(znalezione == 0)
 				printf("\nNie posiada poprzednika lub drzewo jest puste\n");
 			else
-				printf("Wyszukana wartosc:  %c, adres: %d\n", znalezione->wartosc, &znalezione);
+				printf("Wyszukana wartosc:  %c, adres: %p\n", znalezione->wartosc, &znalezione);
 			system("PAUSE");
+			break;
 		case 7:
 			wartosc(&value);
 			znalezione = nastepnik(&pierwsze, value);
 			if (znalezione == 0)
 				printf("\nNie posiada poprzednika lub drzewo jest puste\n");
 			else
-				printf("Wyszukana wartosc:  %c, adres: %d\n", znalezione->wartosc, &znalezione);
+				printf("Wyszukana wartosc:  %c, adres: %p\n", znalezione->wartosc, &znalezione);
+			system("PAUSE");
+			break;
 		default:
 			break;
 		}
@@ -277,11 +280,11 @@ list** treeToList(node** p)
 		return 0;
 	list** lista = NULL;
 	node* pom = minimum(p);
-	list_add_end(lista, pom->wartosc);
+	list_add_end_C(lista, pom->wartosc);
 	while (pom != 0)
 	{
 		pom = nastepnik(p, pom->wartosc);
-		list_add_end(lista, pom->wartosc);
+		list_add_end_C(lista, pom->wartosc);
 	}
 	return lista;
 }

@@ -37,6 +37,12 @@
     <Filter Include="Header Files\porownanie">
       <UniqueIdentifier>{d8c9d68c-f5ec-44b6-9532-5811539455d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\droga">
+      <UniqueIdentifier>{ab944ff2-8573-4380-9986-a10d550fa712}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\droga">
+      <UniqueIdentifier>{90d78099-55ca-489f-a861-c364e778f59e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -60,6 +66,9 @@
     <ClCompile Include="drzewo_binarne\listaC.c">
       <Filter>Source Files\drzewo_binarne</Filter>
     </ClCompile>
+    <ClCompile Include="droga\droga.c">
+      <Filter>Source Files\droga</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sortowanie\sortowanie.h">
@@ -79,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="drzewo_binarne\listaC.h">
       <Filter>Header Files\drzewo_binarne</Filter>
+    </ClInclude>
+    <ClInclude Include="droga\droga.h">
+      <Filter>Header Files\droga</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

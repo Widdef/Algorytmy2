@@ -4,15 +4,19 @@ void menu_22()
 {
 	system("CLS");
 	char* napis = (char*)malloc(100 * sizeof(char));
+	for (int i = 0; i < 100; i++)
+		napis[i] = ' ';
 	printf("Sortowanie ciagu znakow kopcowe.");
-	printf("\nPodaj ciag znakow (max 100 znakow)");
-	scanf_s("%c", napis, 100);
-	heapSort(napis, 100);
+	printf("\nPodaj ciag znakow (max 100 znakow)\n");
+	scanf_s(" %s", napis, 100);
+	int ilosc = strlen(napis);
+	printf("\n%d\n", ilosc);
+	heapSort(napis, ilosc);
 
 	printf("Po sortowaniu: ");
-	for (int i = 0; i < 100; i++)
-		printf("%s", napis[i]);
-
+	for (int i = 0; i < ilosc; i++)
+		printf("%c", napis[i]);
+	printf("\n");
 	system("PAUSE");
 }
 
@@ -23,7 +27,7 @@ void swapkop(char* a, char* b)
 	*b = t;
 }
 
-void heapify(char arr[], int n, int i)
+void heapify(char *arr, int n, int i)
 {
 	int largest = i;
 	int l = 2 * i + 1;
@@ -41,7 +45,7 @@ void heapify(char arr[], int n, int i)
 	}
 }
  
-void heapSort(char arr[], int n)
+void heapSort(char* arr, int n)
 { 
 	for (int i = n / 2 - 1; i >= 0; i--)
 		heapify(arr, n, i);

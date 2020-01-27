@@ -13,9 +13,9 @@ void menu_16() {
 	{
 		system("CLS");
 		if(drzewo == 1)
-			wyswietl(pierwsze, 0);
+			wyswietl_16(pierwsze, 0);
 		if(drzewo == 2)
-			wyswietl(drugie, 0);
+			wyswietl_16(drugie, 0);
 		printf("\n--------------------------------------------------------------\n\n");
 		printf("Co chcesz wykonac\n");
 		printf("1 - Dodaj\n");
@@ -34,36 +34,36 @@ void menu_16() {
 		switch (wybor)
 		{
 		case 1:
-			wartosc(&value);
+			wartosc_16(&value);
 			if (drzewo == 1)
-				dodaj(&pierwsze, value);
+				dodaj_16(&pierwsze, value);
 			if (drzewo == 2)
-				dodaj(&drugie, value);
+				dodaj_16(&drugie, value);
 			break;
 		case 2:
-			wartosc(&value);
+			wartosc_16(&value);
 			if (drzewo == 1)
-				usun(&pierwsze, value);
+				usun_16(&pierwsze, value);
 			if (drzewo == 2)
-				usun(&drugie, value);
+				usun_16(&drugie, value);
 			break;
 		case 3:
-			wartosc(&value);
+			wartosc_16(&value);
 			if (drzewo == 1)
-				znalezione = szukaj(&pierwsze, value);
+				znalezione = szukaj_16(&pierwsze, value);
 			if (drzewo == 2)
-				znalezione = szukaj(&drugie, value);
+				znalezione = szukaj_16(&drugie, value);
 			if (znalezione == 0)
 				printf("\nNie znaleziono wartosci lub drzewo jest puste\n");
 			else
-				printf("Wyszukana wartosc:  %d, adres: %d\n", znalezione->wartosc, &znalezione);
+				printf("Wyszukana wartosc:  %d, adres: %p\n", znalezione->wartosc, &znalezione);
 			system("PAUSE");
 			break;
 		case 4:
 			if (drzewo == 1)
-				znalezione = minimum(&pierwsze);
+				znalezione = minimum_16(&pierwsze);
 			if (drzewo == 2)
-				znalezione = minimum(&drugie);
+				znalezione = minimum_16(&drugie);
 			if(znalezione == 0)
 				printf("\nDrzewo jest puste.\n");
 			else
@@ -72,9 +72,9 @@ void menu_16() {
 			break;
 		case 5:
 			if (drzewo == 1)
-				znalezione = maksimum(&pierwsze);
+				znalezione = maksimum_16(&pierwsze);
 			if (drzewo == 2)
-				znalezione = maksimum(&drugie);
+				znalezione = maksimum_16(&drugie);
 			if (znalezione == 0)
 				printf("\nDrzewo jest puste.\n");
 			else
@@ -82,28 +82,31 @@ void menu_16() {
 			system("PAUSE");
 			break;
 		case 6:
-			wartosc(&value);
+			wartosc_16(&value);
 			if (drzewo == 1)
-				znalezione = poprzednik(&pierwsze, value);
+				znalezione = poprzednik_16(&pierwsze, value);
 			if (drzewo == 2)
-				znalezione = poprzednik(&drugie, value);
+				znalezione = poprzednik_16(&drugie, value);
 			if(znalezione == 0)
 				printf("\nNie posiada poprzednika lub drzewo jest puste\n");
 			else
-				printf("Wyszukana wartosc:  %d, adres: %d\n", znalezione->wartosc, &znalezione);
+				printf("Wyszukana wartosc:  %d, adres: %p\n", znalezione->wartosc, &znalezione);
 			system("PAUSE");
+			break;
 		case 7:
-			wartosc(&value);
+			wartosc_16(&value);
 			if (drzewo == 1)
-				znalezione = nastepnik(&pierwsze, value);
+				znalezione = nastepnik_16(&pierwsze, value);
 			if (drzewo == 2)
-				znalezione = nastepnik(&drugie, value);
+				znalezione = nastepnik_16(&drugie, value);
 			if (znalezione == 0)
 				printf("\nNie posiada poprzednika lub drzewo jest puste\n");
 			else
-				printf("Wyszukana wartosc:  %d, adres: %d\n", znalezione->wartosc, &znalezione);
+				printf("Wyszukana wartosc:  %d, adres: %p\n", znalezione->wartosc, &znalezione);
+			system("PAUSE");
+			break;
 		case 8:
-			if (porownanie(&pierwsze, &drugie))
+			if (porownanie_16(&pierwsze, &drugie))
 				printf("Drzewa sa identyczne\n");
 			else
 				printf("Drzewa sa rozne\n");
@@ -134,12 +137,12 @@ void wyswietl_16(node *root, int space) //rekurencyjna funkcja
 	if (root == NULL)
 		return;
 	space += COUNT;
-	wyswietl(root->prawy, space); //najpier wywo³uje dla wiêkszych
+	wyswietl_16(root->prawy, space); //najpier wywo³uje dla wiêkszych
 	printf("\n\n");
 	for (int i = COUNT; i < space; i++)
 		printf(" ");
 	printf("%d\n", root->wartosc); //wypisanie
-	wyswietl(root->lewy, space); //na koniec mniejsze
+	wyswietl_16(root->lewy, space); //na koniec mniejsze
 }
 
 void dodaj_16(node** p, int value) {
@@ -163,11 +166,11 @@ void dodaj_16(node** p, int value) {
 
 void usun_16(node** p, int value)
 {
-	node* marker  = szukaj(p, value);
+	node* marker  = szukaj_16(p, value);
 	node* pom = marker;
 	if (marker->lewy != NULL)
 	{
-		pom = poprzednik(&marker, value);
+		pom = poprzednik_16(&marker, value);
 		marker->wartosc = pom->wartosc;
 		if (pom->rodzic != NULL)
 			if (pom->rodzic->lewy == pom)
@@ -183,7 +186,7 @@ void usun_16(node** p, int value)
 	}
 	else if (marker->prawy != NULL)
 	{
-		pom = nastepnik(&marker, value);
+		pom = nastepnik_16(&marker, value);
 		marker->wartosc = pom->wartosc;
 		if (pom->rodzic != NULL)
 			if (pom->rodzic->lewy == pom)
@@ -254,9 +257,9 @@ node* poprzednik_16(node** p, int value)
 {
 	if (p == NULL)
 		return 0;
-	node* marker = szukaj(p, value);
+	node* marker = szukaj_16(p, value);
 	if (marker->lewy != NULL)
-		return maksimum(&marker->lewy);
+		return maksimum_16(&marker->lewy);
 	else
 	{
 		if (marker == *p)
@@ -275,9 +278,9 @@ node* nastepnik_16(node** p, int value)
 {
 	if (p == NULL)
 		return 0;
-	node* marker = szukaj(p, value);
+	node* marker = szukaj_16(p, value);
 	if (marker->prawy != NULL)
-		return minimum(&marker->prawy);
+		return minimum_16(&marker->prawy);
 	else
 	{
 		if (marker == *p)
@@ -294,8 +297,8 @@ node* nastepnik_16(node** p, int value)
 
 int porownanie_16(node** p, node** l)
 {
-	list** pLista = treeToList(p);
-	list** lLista = treeToList(l);
+	list** pLista = treeToList_16(p);
+	list** lLista = treeToList_16(l);
 	if ((pLista == NULL && lLista != NULL) || (pLista != NULL && lLista == NULL))
 		return 0;
 	if ((pLista == NULL && lLista == NULL) || (pLista != NULL && lLista != NULL))
@@ -317,11 +320,11 @@ list** treeToList_16(node** p)
 	if (p == NULL)
 		return 0;
 	list** lista = NULL;
-	node* pom = minimum(p);
+	node* pom = minimum_16(p);
 	list_add_end(lista, pom->wartosc);
 	while (pom != 0)
 	{
-		pom = nastepnik(p, pom->wartosc);
+		pom = nastepnik_16(p, pom->wartosc);
 		list_add_end(lista, pom->wartosc);
 	}
 	return lista;

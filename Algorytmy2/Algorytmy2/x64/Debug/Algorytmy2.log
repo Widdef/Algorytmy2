@@ -1,4 +1,2 @@
-﻿  kopce.c
-c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\kopce\kopce.c(14): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int'
-c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\kopce\kopce.c(14): warning C4313: 'printf': '%s' in format string conflicts with argument 1 of type 'int'
+﻿  porownanie.c
   Algorytmy2.vcxproj -> C:\Users\mzygo\Source\Repos\Widdef\Algorytmy2\Algorytmy2\x64\Debug\Algorytmy2.exe
