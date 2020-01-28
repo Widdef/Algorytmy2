@@ -63,9 +63,6 @@
     <ClCompile Include="porownanie\porownanie.c">
       <Filter>Source Files\porownanie</Filter>
     </ClCompile>
-    <ClCompile Include="drzewo_binarne\listaC.c">
-      <Filter>Source Files\drzewo_binarne</Filter>
-    </ClCompile>
     <ClCompile Include="droga\droga.c">
       <Filter>Source Files\droga</Filter>
     </ClCompile>
@@ -85,9 +82,6 @@
     </ClInclude>
     <ClInclude Include="porownanie\lista.h">
       <Filter>Header Files\porownanie</Filter>
-    </ClInclude>
-    <ClInclude Include="drzewo_binarne\listaC.h">
-      <Filter>Header Files\drzewo_binarne</Filter>
     </ClInclude>
     <ClInclude Include="droga\droga.h">
       <Filter>Header Files\droga</Filter>

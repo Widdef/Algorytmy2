@@ -24,7 +24,7 @@ void menu_16() {
 		printf("4 - Minimum\n");
 		printf("5 - Maksimum\n");
 		printf("6 - Wyznaczanie poprzednika\n");
-		printf("7 - Wyznaczanie nastêpnika\n");
+		printf("7 - Wyznaczanie nastepnika\n");
 		printf("8 - Porownanie drzew - zadanie 16\n");
 		printf("9 - Zmien drzewa\n");
 		printf("0 - Cofnij\n");
@@ -111,11 +111,13 @@ void menu_16() {
 			else
 				printf("Drzewa sa rozne\n");
 			system("PAUSE");
+			break;
 		case 9:
 			if (drzewo == 1)
 				drzewo = 2;
-			if (drzewo == 2)
+			else if (drzewo == 2)
 				drzewo = 1;
+			break;
 		default:
 			break;
 		}
@@ -297,11 +299,13 @@ node* nastepnik_16(node** p, int value)
 
 int porownanie_16(node** p, node** l)
 {
-	list** pLista = treeToList_16(p);
-	list** lLista = treeToList_16(l);
+	list* pL = treeToList_16(p);
+	list** pLista = &pL;
+	list* lL = treeToList_16(l);
+	list** lLista = &lL;
 	if ((pLista == NULL && lLista != NULL) || (pLista != NULL && lLista == NULL))
 		return 0;
-	if ((pLista == NULL && lLista == NULL) || (pLista != NULL && lLista != NULL))
+	if (pLista == NULL && lLista == NULL)
 		return 1;
 	while ((*pLista) != NULL && (*lLista) != NULL)
 	{
@@ -310,22 +314,21 @@ int porownanie_16(node** p, node** l)
 		pLista = &(*pLista)->next;
 		lLista = &(*lLista)->next;
 	}
-	if (pLista != lLista)
+	if (*pLista != *lLista)
 		return 0;
 	return 1;
 }
 
-list** treeToList_16(node** p)
+list* treeToList_16(node** p)
 {
 	if (p == NULL)
 		return 0;
-	list** lista = NULL;
+	list* lista = NULL;
 	node* pom = minimum_16(p);
-	list_add_end(lista, pom->wartosc);
 	while (pom != 0)
 	{
+		list_add_end(&lista, pom->wartosc);
 		pom = nastepnik_16(p, pom->wartosc);
-		list_add_end(lista, pom->wartosc);
 	}
 	return lista;
 }

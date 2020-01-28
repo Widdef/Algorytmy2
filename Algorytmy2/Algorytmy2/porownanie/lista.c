@@ -1,18 +1,24 @@
 #include "lista.h"
 
 
-void list_add_end(list **p, int value)
+void list_add_end(list** p, int value)
 {
-	list ** marker = p;
-	list *new_el = (list*)malloc(sizeof(list));
-
-	while (*marker)
-	{
-		marker = &(*marker)->next;
-	}
+	list** marker = p;
+	list* new_el = (list*)malloc(sizeof(list));
 	new_el->data = value;
 	new_el->next = NULL;
-	*marker = new_el;
+	if (p == NULL)
+	{
+		*p = new_el;
+	}
+	else
+	{
+		while (*marker)
+		{
+			marker = &(*marker)->next;
+		}
+		*marker = new_el;
+	}
 }
 
 void list_add_start(list **p, int value)

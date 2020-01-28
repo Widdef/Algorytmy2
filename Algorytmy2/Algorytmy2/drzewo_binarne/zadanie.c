@@ -253,38 +253,3 @@ node* nastepnik(node** p, char value)
 		return 0;
 	}
 }
-
-int porownanie(node** p, node** l)
-{
-	list** pLista = treeToList(p);
-	list** lLista = treeToList(l);
-	if ((pLista == NULL && lLista != NULL) || (pLista != NULL && lLista == NULL))
-		return 0;
-	if ((pLista == NULL && lLista == NULL) || (pLista != NULL && lLista != NULL))
-		return 1;
-	while ((*pLista) != NULL && (*lLista) != NULL)
-	{
-		if (((*pLista)->data != (*lLista)->data) && (pLista == NULL || lLista == NULL))
-			return 0;
-		pLista = &(*pLista)->next;
-		lLista = &(*lLista)->next;
-	}
-	if (pLista != lLista)
-		return 0;
-	return 1;
-}
-
-list** treeToList(node** p)
-{
-	if (p == NULL)
-		return 0;
-	list** lista = NULL;
-	node* pom = minimum(p);
-	list_add_end_C(lista, pom->wartosc);
-	while (pom != 0)
-	{
-		pom = nastepnik(p, pom->wartosc);
-		list_add_end_C(lista, pom->wartosc);
-	}
-	return lista;
-}

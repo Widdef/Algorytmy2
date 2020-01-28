@@ -23,4 +23,4 @@ node* maksimum_16(node**);
 node* poprzednik_16(node**, int);
 node* nastepnik_16(node**, int);
 int porownanie_16(node**, node**);
-list** treeToList_16(node**);
+list* treeToList_16(node**);

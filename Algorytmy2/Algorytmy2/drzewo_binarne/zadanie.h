@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "listaC.h"
 
 typedef struct tree
 {
@@ -22,5 +21,3 @@ node* minimum(node**);
 node* maksimum(node**);
 node* poprzednik(node**, char);
 node* nastepnik(node**, char);
-int porownanie(node**, node**);
-list** treeToList(node**);
