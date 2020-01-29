@@ -7,6 +7,7 @@
 
 void menu_25();
 void rozmiar(int*);
-void generuj(int**, int);
-void wyswietl_25(int**, int);
-void dijkstry(int**, int, int);
+void generuj(int***, int*, int);
+void wyswietl_25(int**, int**,int);
+void wyswietl_matrix(int**,int);
+void solve(int**, const int, int);

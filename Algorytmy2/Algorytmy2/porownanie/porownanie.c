@@ -3,10 +3,10 @@
 
 void menu_16() {
 	int drzewo = 1;
-	node* pierwsze = NULL;
-	node* drugie = NULL;
-	node* tmp = drugie;
-	node* znalezione = 0;
+	node16* pierwsze = NULL;
+	node16* drugie = NULL;
+	node16* tmp = drugie;
+	node16* znalezione = 0;
 	int value;
 	int wybor;
 	do
@@ -134,7 +134,7 @@ void wartosc_16(int *value)
 	scanf("%d", value);
 }
 
-void wyswietl_16(node *root, int space) //rekurencyjna funkcja 
+void wyswietl_16(node16 *root, int space) //rekurencyjna funkcja 
 {
 	if (root == NULL)
 		return;
@@ -147,10 +147,10 @@ void wyswietl_16(node *root, int space) //rekurencyjna funkcja
 	wyswietl_16(root->lewy, space); //na koniec mniejsze
 }
 
-void dodaj_16(node** p, int value) {
-	node **marker = p;
-	node* prev = NULL;
-	node *new_el = (node*)malloc(sizeof(node));
+void dodaj_16(node16** p, int value) {
+	node16 **marker = p;
+	node16* prev = NULL;
+	node16 *new_el = (node16*)malloc(sizeof(node16));
 	new_el->lewy = NULL;
 	new_el->prawy = NULL;
 	new_el->wartosc = value;
@@ -166,10 +166,10 @@ void dodaj_16(node** p, int value) {
 	*marker = new_el;
 }
 
-void usun_16(node** p, int value)
+void usun_16(node16** p, int value)
 {
-	node* marker  = szukaj_16(p, value);
-	node* pom = marker;
+	node16* marker  = szukaj_16(p, value);
+	node16* pom = marker;
 	if (marker->lewy != NULL)
 	{
 		pom = poprzednik_16(&marker, value);
@@ -208,9 +208,9 @@ void usun_16(node** p, int value)
 	free(pom);
 }
 
-node* szukaj_16(node** p, int value)
+node16* szukaj_16(node16** p, int value)
 {
-	node** marker = p;
+	node16** marker = p;
 	if (marker == NULL)
 	{
 		return 0;
@@ -227,13 +227,13 @@ node* szukaj_16(node** p, int value)
 	return (*marker);
 }
 
-node* minimum_16(node** p)
+node16* minimum_16(node16** p)
 {
 	if (p == NULL)
 	{
 		return 0;
 	}
-	node** marker = p;
+	node16** marker = p;
 	while ((*marker)->lewy != NULL)
 	{
 		marker = &(*marker)->lewy;
@@ -241,13 +241,13 @@ node* minimum_16(node** p)
 	return (*marker);
 }
 
-node* maksimum_16(node** p)
+node16* maksimum_16(node16** p)
 {
 	if (p == NULL)
 	{
 		return 0;
 	}
-	node** marker = p;
+	node16** marker = p;
 	while ((*marker)->prawy != NULL)
 	{
 		marker = &(*marker)->prawy;
@@ -255,11 +255,11 @@ node* maksimum_16(node** p)
 	return (*marker);
 }
 
-node* poprzednik_16(node** p, int value)
+node16* poprzednik_16(node16** p, int value)
 {
 	if (p == NULL)
 		return 0;
-	node* marker = szukaj_16(p, value);
+	node16* marker = szukaj_16(p, value);
 	if (marker->lewy != NULL)
 		return maksimum_16(&marker->lewy);
 	else
@@ -276,11 +276,11 @@ node* poprzednik_16(node** p, int value)
 	}
 }
 
-node* nastepnik_16(node** p, int value)
+node16* nastepnik_16(node16** p, int value)
 {
 	if (p == NULL)
 		return 0;
-	node* marker = szukaj_16(p, value);
+	node16* marker = szukaj_16(p, value);
 	if (marker->prawy != NULL)
 		return minimum_16(&marker->prawy);
 	else
@@ -297,7 +297,7 @@ node* nastepnik_16(node** p, int value)
 	}
 }
 
-int porownanie_16(node** p, node** l)
+int porownanie_16(node16** p, node16** l)
 {
 	list* pL = treeToList_16(p);
 	list** pLista = &pL;
@@ -319,12 +319,12 @@ int porownanie_16(node** p, node** l)
 	return 1;
 }
 
-list* treeToList_16(node** p)
+list* treeToList_16(node16** p)
 {
 	if (p == NULL)
 		return 0;
 	list* lista = NULL;
-	node* pom = minimum_16(p);
+	node16* pom = minimum_16(p);
 	while (pom != 0)
 	{
 		list_add_end(&lista, pom->wartosc);

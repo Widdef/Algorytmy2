@@ -4,6 +4,7 @@
 #include "sortowanie/sortowanie.h"
 #include "kopce/kopce.h"
 #include "droga/droga.h"
+#include "porownanie/porownanie.h"
 
 int main()
 {
