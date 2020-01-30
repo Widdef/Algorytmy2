@@ -9,6 +9,7 @@ void menu_16() {
 	node16* znalezione = 0;
 	int value;
 	int wybor;
+	int liczba;
 	do
 	{
 		system("CLS");
@@ -106,7 +107,9 @@ void menu_16() {
 			system("PAUSE");
 			break;
 		case 8:
-			if (porownanie_16(&pierwsze, &drugie))
+			liczba = porownanie_16(&pierwsze, &drugie);
+			printf("%d", liczba);
+			if (liczba)
 				printf("Drzewa sa identyczne\n");
 			else
 				printf("Drzewa sa rozne\n");
@@ -307,9 +310,9 @@ int porownanie_16(node16** p, node16** l)
 		return 0;
 	if (pLista == NULL && lLista == NULL)
 		return 1;
-	while ((*pLista) != NULL && (*lLista) != NULL)
+	while (((*pLista) != NULL) && (*lLista) != NULL)
 	{
-		if (((*pLista)->data != (*lLista)->data) && (pLista == NULL || lLista == NULL))
+		if ((*pLista)->data != (*lLista)->data)
 			return 0;
 		pLista = &(*pLista)->next;
 		lLista = &(*lLista)->next;

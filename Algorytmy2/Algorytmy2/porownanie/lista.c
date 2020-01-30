@@ -1,6 +1,7 @@
 #include "lista.h"
 
 
+
 void list_add_end(list** p, int value)
 {
 	list** marker = p;

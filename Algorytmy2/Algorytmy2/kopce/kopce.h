@@ -5,5 +5,5 @@
 
 void menu_22();
 void swapkop(char*, char*);
-void heapify(char*, int, int);
+void heap(char*, int, int);
 void heapSort(char*, int);

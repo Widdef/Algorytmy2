@@ -4,7 +4,7 @@
 void menu_14() {
 	node* pierwsze = NULL;
 	node* znalezione;
-	char* value = ' ';
+	char* value = malloc(sizeof(char)*100);
 	int wybor;
 	do
 	{
@@ -19,6 +19,7 @@ void menu_14() {
 		printf("5 - Maksimum\n");
 		printf("6 - Wyznaczanie poprzednika\n");
 		printf("7 - Wyznaczanie nastepnika\n");
+		printf("8 - Zapis do pliku\n");
 		printf("0 - Cofnij\n");
 		printf("\nPodaj liczbe:  ");
 		scanf("%d", &wybor);
@@ -47,7 +48,7 @@ void menu_14() {
 			if(znalezione == 0)
 				printf("\nDrzewo jest puste.\n");
 			else
-				printf("Wartosc minimalna:  %c\n", znalezione->wartosc);
+				printf("Wartosc minimalna:  %s\n", znalezione->wartosc);
 			system("PAUSE");
 			break;
 		case 5:
@@ -55,7 +56,7 @@ void menu_14() {
 			if (znalezione == 0)
 				printf("\nDrzewo jest puste.\n");
 			else
-				printf("Wartosc maksymalna:  %c\n", znalezione->wartosc);
+				printf("Wartosc maksymalna:  %s\n", znalezione->wartosc);
 			system("PAUSE");
 			break;
 		case 6:
@@ -64,7 +65,7 @@ void menu_14() {
 			if(znalezione == 0)
 				printf("\nNie posiada poprzednika lub drzewo jest puste\n");
 			else
-				printf("Wyszukana wartosc:  %c, adres: %p\n", znalezione->wartosc, &znalezione);
+				printf("Wyszukana wartosc:  %s, adres: %p\n", znalezione->wartosc, &znalezione);
 			system("PAUSE");
 			break;
 		case 7:
@@ -73,8 +74,11 @@ void menu_14() {
 			if (znalezione == 0)
 				printf("\nNie posiada poprzednika lub drzewo jest puste\n");
 			else
-				printf("Wyszukana wartosc:  %c, adres: %p\n", znalezione->wartosc, &znalezione);
+				printf("Wyszukana wartosc:  %s, adres: %p\n", znalezione->wartosc, &znalezione);
 			system("PAUSE");
+			break;
+		case 8:
+			zapis_15(&pierwsze);
 			break;
 		default:
 			break;
@@ -84,14 +88,16 @@ void menu_14() {
 	free(pierwsze);
 }
 
-void wartosc(char *value)
+void wartosc(char **value)
 {
 	system("CLS");
+	for (int i = 0; i < 100; i++)
+		(*value)[i]=' ';
 	printf("Podaj wartosc:  ");
-	scanf("%s", value);
+	scanf_s("%s", (*value), 100);
 }
 
-void wyswietl(node *root, char space) //rekurencyjna funkcja 
+void wyswietl(node *root, char* space) //rekurencyjna funkcja 
 {
 	if (root == NULL)
 		return;
@@ -100,21 +106,29 @@ void wyswietl(node *root, char space) //rekurencyjna funkcja
 	printf("\n\n");
 	for (int i = COUNT; i < space; i++)
 		printf(" ");
-	printf("%c\n", root->wartosc); //wypisanie
+	int i = 0;
+	int j = strlen(root->wartosc);
+	while (i != j)
+	{
+		printf("%c", root->wartosc[i]); //wypisanie
+		i++;
+	}
+	printf("\n");
 	wyswietl(root->lewy, space); //na koniec mniejsze
 }
 
-void dodaj(node** p, char value) {
+void dodaj(node** p, char* value) {
 	node **marker = p;
 	node* prev = NULL;
 	node *new_el = (node*)malloc(sizeof(node));
 	new_el->lewy = NULL;
 	new_el->prawy = NULL;
-	new_el->wartosc = value;
+	new_el->wartosc = malloc(sizeof(char)*100);
+	memcpy(new_el->wartosc, value, 100);
 	while (*marker != NULL)
 	{
 		prev = *marker;
-		if (value < (*marker)->wartosc)
+		if (memcmp((*marker)->wartosc, value, strlen((*marker)->wartosc))>0)
 			marker = &(*marker)->lewy;
 		else
 			marker = &(*marker)->prawy;
@@ -123,7 +137,7 @@ void dodaj(node** p, char value) {
 	*marker = new_el;
 }
 
-void usun(node** p, char value)
+void usun(node** p, char* value)
 {
 	node* marker  = szukaj(p, value);
 	node* pom = marker;
@@ -165,21 +179,24 @@ void usun(node** p, char value)
 	free(pom);
 }
 
-node* szukaj(node** p, char value)
+node* szukaj(node** p, char* value)
 {
 	node** marker = p;
 	if (marker == NULL)
 	{
 		return 0;
 	}
-	while ((*marker)->wartosc != value)
+	int i = memcmp((*p)->wartosc, value, 100);
+	while (i)
 	{
-		if ((*marker)->wartosc > value)
+		if (i>0)
 			marker = &(*marker)->lewy;
-		if ((*marker)->wartosc < value)
+		if (i<0)
 			marker = &(*marker)->prawy;
-		if (marker == NULL)
+		if (*marker == NULL)
 			return 0;
+		i = memcmp((*marker)->wartosc, value, 100);
+		
 	}
 	return (*marker);
 }
@@ -212,7 +229,7 @@ node* maksimum(node** p)
 	return (*marker);
 }
 
-node* poprzednik(node** p, char value)
+node* poprzednik(node** p, char* value)
 {
 	if (p == NULL)
 		return 0;
@@ -233,7 +250,7 @@ node* poprzednik(node** p, char value)
 	}
 }
 
-node* nastepnik(node** p, char value)
+node* nastepnik(node** p, char* value)
 {
 	if (p == NULL)
 		return 0;
@@ -253,27 +270,39 @@ node* nastepnik(node** p, char value)
 		return 0;
 	}
 }
-//
-//void zapis_15(node** p)
-//{
-//	char file[256];
-//	FILE *fptr;
-//	printf_s("Podaj nazwe pliku: ");
-//	scanf_s("%s", &file, 256);
-//	fptr = fopen(file, "w");
-//	if (fptr == NULL)
-//	{
-//		printf("Blad otwarcia pliku.\n");
-//		system("PAUSE");
-//		fclose(fptr);
-//		return;
-//	}
-//	while (p != NULL)
-//	{
-//		/*fprintf(fptr, "%d ", head->data);
-//		head = head->next;*/
-//	}
-//	printf("Udalo sie zapisac dane do pliku.\n");
-//	fclose(fptr);
-//	system("PAUSE");
-//}
+
+void zapis_15(node** p)
+{
+	char file[256];
+	FILE *fptr;
+	printf_s("Podaj nazwe pliku: ");
+	scanf_s("%s", &file, 256);
+	fptr = fopen(file, "w");
+	if (fptr == NULL)
+	{
+		printf("Blad otwarcia pliku.\n");
+		system("PAUSE");
+		fclose(fptr);
+		return;
+	}
+	listC* list = NULL;
+	treeToList_15(p, &list);
+	while (list != NULL)
+	{
+		fprintf(fptr, "%d ", list->data);
+		list = list->next;
+	}
+	printf("Udalo sie zapisac dane do pliku.\n");
+	fclose(fptr);
+	system("PAUSE");
+}
+
+void treeToList_15(node** p, listC** list)
+{
+	if (p == NULL)
+		return;
+	listC* lista = NULL;
+	list_add_end(&lista, (*p)->wartosc);
+	treeToList_15((*p)->lewy, &lista);
+	treeToList_15((*p)->prawy, &lista);
+}

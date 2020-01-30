@@ -1,3 +1,0 @@
-﻿  sortowanie.c
-c:\users\mzygo\source\repos\algorytmy2\algorytmy2\sortowanie\sortowanie.c(10): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Algorytmy2.vcxproj -> C:\Users\mzygo\source\repos\Algorytmy2\Debug\Algorytmy2.exe

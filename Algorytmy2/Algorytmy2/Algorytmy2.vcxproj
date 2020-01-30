@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="droga\droga.c" />
+    <ClCompile Include="drzewo_binarne\listaC.c" />
     <ClCompile Include="drzewo_binarne\zadanie.c" />
     <ClCompile Include="kopce\kopce.c" />
     <ClCompile Include="main.c" />
@@ -29,6 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="droga\droga.h" />
+    <ClInclude Include="drzewo_binarne\listaC.h" />
     <ClInclude Include="drzewo_binarne\zadanie.h" />
     <ClInclude Include="kopce\kopce.h" />
     <ClInclude Include="porownanie\lista.h" />
@@ -97,6 +99,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -109,6 +112,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

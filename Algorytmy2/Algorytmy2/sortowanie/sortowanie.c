@@ -1,7 +1,7 @@
 #include "sortowanie.h"
 #define START 0
-#define KONIEC 10000
-#define COUNT 1000
+#define KONIEC 1000
+#define COUNT 20
 
 void menu_21() {
 	system("CLS");
@@ -146,8 +146,8 @@ void quicksort(int arr[], int start, int end, int* podstawienia, int* porownania
 {
 	if (start < end)
 	{
-		int pi = partition(arr, start, end, podstawienia, porownania);
-		quicksort(arr, start, pi - 1, podstawienia, porownania);
-		quicksort(arr, pi + 1, end, podstawienia, porownania);
+		int podz = partition(arr, start, end, podstawienia, porownania);
+		quicksort(arr, start, podz - 1, podstawienia, porownania);
+		quicksort(arr, podz + 1, end, podstawienia, porownania);
 	}
 }
