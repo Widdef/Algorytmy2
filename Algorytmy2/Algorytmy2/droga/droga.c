@@ -82,6 +82,7 @@ void wyswietl_matrix(int** dist, int size) {
 			}
 			printf("\n");
 		}
+	system("PAUSE");
 }
 void wyswietl_25(int** dist, int** next, int size) 
 {

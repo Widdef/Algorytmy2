@@ -21,3 +21,4 @@ node* minimum(node**);
 node* maksimum(node**);
 node* poprzednik(node**, char);
 node* nastepnik(node**, char);
+//void zapis_15(node**);

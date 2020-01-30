@@ -1,2 +1,23 @@
-﻿  droga.c
+﻿  zadanie.c
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(29): warning C4047: 'function': 'char *' differs in levels of indirection from 'char **'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(29): warning C4024: 'wartosc': different types for formal and actual parameter 1
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(30): warning C4047: 'function': 'char' differs in levels of indirection from 'char *'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(30): warning C4024: 'dodaj': different types for formal and actual parameter 2
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(33): warning C4047: 'function': 'char *' differs in levels of indirection from 'char **'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(33): warning C4024: 'wartosc': different types for formal and actual parameter 1
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(34): warning C4047: 'function': 'char' differs in levels of indirection from 'char *'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(34): warning C4024: 'usun': different types for formal and actual parameter 2
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(37): warning C4047: 'function': 'char *' differs in levels of indirection from 'char **'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(37): warning C4024: 'wartosc': different types for formal and actual parameter 1
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(38): warning C4047: 'function': 'char' differs in levels of indirection from 'char *'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(38): warning C4024: 'szukaj': different types for formal and actual parameter 2
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(62): warning C4047: 'function': 'char *' differs in levels of indirection from 'char **'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(62): warning C4024: 'wartosc': different types for formal and actual parameter 1
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(63): warning C4047: 'function': 'char' differs in levels of indirection from 'char *'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(63): warning C4024: 'poprzednik': different types for formal and actual parameter 2
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(71): warning C4047: 'function': 'char *' differs in levels of indirection from 'char **'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(71): warning C4024: 'wartosc': different types for formal and actual parameter 1
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(72): warning C4047: 'function': 'char' differs in levels of indirection from 'char *'
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(72): warning C4024: 'nastepnik': different types for formal and actual parameter 2
+c:\users\mzygo\source\repos\widdef\algorytmy2\algorytmy2\algorytmy2\drzewo_binarne\zadanie.c(7): warning C4047: 'initializing': 'char *' differs in levels of indirection from 'int'
   Algorytmy2.vcxproj -> C:\Users\mzygo\Source\Repos\Widdef\Algorytmy2\Algorytmy2\x64\Debug\Algorytmy2.exe

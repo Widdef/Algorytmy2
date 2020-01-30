@@ -4,7 +4,7 @@
 void menu_14() {
 	node* pierwsze = NULL;
 	node* znalezione;
-	char value;
+	char* value = ' ';
 	int wybor;
 	do
 	{
@@ -253,3 +253,27 @@ node* nastepnik(node** p, char value)
 		return 0;
 	}
 }
+//
+//void zapis_15(node** p)
+//{
+//	char file[256];
+//	FILE *fptr;
+//	printf_s("Podaj nazwe pliku: ");
+//	scanf_s("%s", &file, 256);
+//	fptr = fopen(file, "w");
+//	if (fptr == NULL)
+//	{
+//		printf("Blad otwarcia pliku.\n");
+//		system("PAUSE");
+//		fclose(fptr);
+//		return;
+//	}
+//	while (p != NULL)
+//	{
+//		/*fprintf(fptr, "%d ", head->data);
+//		head = head->next;*/
+//	}
+//	printf("Udalo sie zapisac dane do pliku.\n");
+//	fclose(fptr);
+//	system("PAUSE");
+//}
